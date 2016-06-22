@@ -1,0 +1,8 @@
+---
+- name: load sites available with {{ server_name }} vhost
+  template: src=vhosts.conf.j2 dest="/etc/nginx/sites-available/{{ server_name }}"
+
+- name: link {{ server_name }} vhost to sites enabled
+  file: src="/etc/nginx/sites-available/{{ server_name }}" dest="/etc/nginx/sites-enabled/{{ server_name }}" state=link
+  notify:
+    - reload nginx

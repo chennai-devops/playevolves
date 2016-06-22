@@ -1,0 +1,16 @@
+Flask
+Flask-SQLAlchemy
+Flask-Cors
+Flask-Marshmallow
+sqlalchemy-migrate
+marshmallow-sqlalchemy
+
+simplejson
+circus
+circus-web
+zmq
+gevent
+requests
+chaussette
+
+ansible

@@ -1,0 +1,6 @@
+---
+- name: install netdata on all servers
+  hosts: netdata
+  roles:
+  - netdata
+

@@ -1,0 +1,6 @@
+---
+- name: create proxies for netdata hosts
+  hosts: netdata
+  become: yes
+  roles:
+    - nginx_ndproxy

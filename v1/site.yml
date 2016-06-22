@@ -1,0 +1,21 @@
+---
+- name: v1 installation of netdata
+  hosts: all
+  tasks:
+    - name: install dependencies for the netdata
+      apt: name={{ item }} update_cache=yes state=latest
+      with_items:
+        - zlib1g-dev
+        - uuid-dev
+        - libmnl-dev
+        - gcc
+        - make
+        - git
+        - autoconf
+        - autogen
+        - automake
+        - pkg-config
+    - name: clone the netdata repo
+      git: repo=https://github.com/firehol/netdata.git dest=/tmp/netdata depth=1
+    - name: run the netdata install script
+      command: ./netdata-installer.sh --dont-wait chdir=/tmp/netdata/
